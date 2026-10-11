@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <title>مَسار | تعلّم البرمجة بطريقتك</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">م</span><div><strong>مَسار</strong><small>رحلتك في البرمجة</small></div></div>
+      <nav>
+        <button class="nav-item active" data-page="home"><span>⌂</span> الرئيسية</button>
+        <button class="nav-item" data-page="roadmap"><span>⌘</span> مسار التعلّم</button>
+        <button class="nav-item" data-page="lesson"><span>▤</span> الحصة اليومية</button>
+        <button class="nav-item" data-page="practice"><span>⌨</span> التدريب</button>
+        <button class="nav-item" data-page="settings"><span>⚙</span> إعداداتي</button>
+      </nav>
+      <div class="sidebar-bottom"><div class="tiny-orb"></div><p>تقدّم صغير كل يوم<br><b>أفضل من ضغط يوم واحد.</b></p></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="فتح القائمة">☰</button>
+        <div><span class="eyebrow">مساحة التعلّم الشخصية</span><h1 id="pageTitle">أهلاً بيك 👋</h1></div>
+        <div class="top-actions"><span class="status-dot"></span><span id="saveStatus">حفظ تلقائي على هذا الجهاز</span><button class="avatar" id="profileButton">أ</button></div>
+      </header>
+
+      <section id="page-home" class="page active">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="pill"><span class="spark">✦</span> خطتك على مقاسك</span>
+            <h2>اتعلّم بذكاء،<br><em>مش بساعات أكتر.</em></h2>
+            <p>خطة صغيرة تناسب يومك، تدريب يثبّت المعلومة، ومراجعة ترجع لك اللي ممكن تنساه. دراستك أولًا، ومَسار ينظّم وقت البرمجة.</p>
+            <div class="hero-actions"><button class="btn primary" id="startToday">ابدأ حصة النهارده <span>←</span></button><button class="btn ghost" data-goto="roadmap">شوف مسارك</button></div>
+          </div>
+          <div class="hero-visual">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="code-window"><div class="window-top"><i></i><i></i><i></i><span>your_next_step.py</span></div>
+              <pre><span class="code-purple">def</span> <span class="code-blue">keep_learning</span>():
+    goal = <span class="code-green">"small steps"</span>
+    practice(goal)
+    <span class="code-purple">return</span> progress</pre>
+              <div class="code-footer"><span>● الخطة جاهزة للتعديل</span><span>01 / 05</span></div>
+            </div>
+            <div class="float-card streak"><span class="float-icon">✦</span><div><b id="streakNumber">0 يوم</b><small>سلسلة التعلّم</small></div></div>
+            <div class="float-card minutes"><span class="float-icon">◷</span><div><b id="dailyMinutes">30 دقيقة</b><small>وقتك اليومي</small></div></div>
+          </div>
+        </div>
+
+        <div class="section-heading"><div><span class="eyebrow">ملخص يومك</span><h2>خطوة واحدة كفاية كبداية</h2></div><button class="text-btn" data-goto="settings">تعديل الهدف ↗</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-icon violet">⌁</div><span>تقدّم المسار</span><strong id="progressPercent">0%</strong><div class="progress-track"><div id="progressBar" class="progress-fill" style="width:0%"></div></div><small id="progressCaption">لسه بنجهّز خطتك</small></article>
+          <article class="stat-card"><div class="stat-icon blue">◷</div><span>وقت اليوم</span><strong id="timeStat">30 <small>دقيقة</small></strong><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><small>الوقت اللي حددته بنفسك</small></article>
+          <article class="stat-card"><div class="stat-icon green">✓</div><span>تدريبات مكتملة</span><strong id="completedStat">0</strong><small>كل إجابة بتساعدك تثبّت الفهم</small></article>
+        </div>
+
+        <div class="lower-grid">
+          <article class="panel next-panel"><div class="panel-head"><div><span class="eyebrow">الخطوة التالية</span><h3 id="nextLessonTitle">ابدأ بتحديد هدفك</h3></div><span class="round-arrow">↗</span></div><p id="nextLessonDesc">جاوب على أسئلة البداية عشان نرتب لك طريق واضح.</p><div class="next-meta"><span>◷ <b id="nextLessonTime">5 دقائق</b></span><span>▣ تدريب عملي</span></div><button class="btn primary full" id="continueButton">كمّل رحلتك</button></article>
+          <article class="panel focus-panel"><div class="panel-head"><div><span class="eyebrow">قاعدة مَسار</span><h3>الدراسة مش منافسة</h3></div><span class="focus-symbol">✳</span></div><p>حدد وقتًا تقدر تلتزم به من غير ما يزاحم دراستك. لو عندك امتحان، قلّل وقت البرمجة أو خُد راحة. الاستمرار أهم من المثالية.</p><div class="focus-note"><span>♡</span> هدفنا يساعدك، مش يضغط عليك.</div></article>
+        </div>
+      </section>
+
+      <section id="page-onboarding" class="page">
+        <div class="onboarding-wrap">
+          <div class="onboarding-intro"><span class="pill"><span class="spark">✦</span> خلّينا نتعرّف على هدفك</span><h2>كل طريق بيبدأ<br><em>بسؤال صح.</em></h2><p>اختار كل اللي يعبّر عنك. مفيش إجابات غلط، وممكن تغيّر اختياراتك في أي وقت.</p><div class="step-track"><span class="step-active"></span><span></span><span></span><span></span></div><small id="stepLabel">الخطوة 1 من 4</small></div>
+          <div class="wizard-card">
+            <div class="wizard-step active" data-step="0">
+              <span class="step-number">01 / الهدف</span><h3>عايز تعمل إيه بالبرمجة؟</h3><p>اختار أكتر من حاجة لو ده اللي في بالك.</p>
+              <div class="choice-grid">
+                <label class="choice"><input type="checkbox" name="goal" value="apps"><span class="choice-emoji">📱</span><b>تطبيقات موبايل</b><small>Android و iOS</small></label>
+                <label class="choice"><input type="checkbox" name="goal" value="web"><span class="choice-emoji">🌐</span><b>مواقع ويب</b><small>واجهات ومواقع كاملة</small></label>
+                <label class="choice"><input type="checkbox" name="goal" value="ai"><span class="choice-emoji">✦</span><b>ذكاء اصطناعي</b><small>نماذج وأدوات ذكية</small></label>
+                <label class="choice"><input type="checkbox" name="goal" value="games"><span class="choice-emoji">🎮</span><b>ألعاب</b><small>منطق وتصميم ألعاب</small></label>
+                <label class="choice"><input type="checkbox" name="goal" value="job"><span class="choice-emoji">💼</span><b>شغل ودخل</b><small>وظيفة أو عمل حر</small></label>
+                <label class="choice"><input type="checkbox" name="goal" value="foundation"><span class="choice-emoji">🧩</span><b>لسه بستكشف</b><small>عايز أفهم المجالات</small></label>
+              </div>
+            </div>
+            <div class="wizard-step" data-step="1">
+              <span class="step-number">02 / مستواك</span><h3>واقف فين دلوقتي؟</h3><p>هنظبط البداية حسب خبرتك، مش حسب افتراضاتنا العبقرية.</p>
+              <div class="radio-list">
+                <label class="radio-choice"><input type="radio" name="level" value="beginner" checked><span><b>لسه ببدأ من الصفر</b><small>ما كتبتش كود قبل كده أو جرّبت حاجات بسيطة.</small></span><i></i></label>
+                <label class="radio-choice"><input type="radio" name="level" value="basic"><span><b>عارف شوية أساسيات</b><small>كتبت أكواد بسيطة وعايز أبني عليها.</small></span><i></i></label>
+                <label class="radio-choice"><input type="radio" name="level" value="intermediate"><span><b>عندي خبرة ومشاريع</b><small>عايز أتخصص وأطوّر مستوايا.</small></span><i></i></label>
+              </div>
+            </div>
+            <div class="wizard-step" data-step="2">
+              <span class="step-number">03 / وقتك</span><h3>قد إيه تقدر تدي للبرمجة؟</h3><p>إنت اللي بتحدد وقتك. الخطة هتلتزم بالحد ده ومش هتطلب منك تخلّص كل حاجة مرة واحدة.</p>
+              <div class="time-options">
+                <label class="time-choice"><input type="radio" name="minutes" value="10"><b>10</b><small>دقايق</small></label>
+                <label class="time-choice"><input type="radio" name="minutes" value="20"><b>20</b><small>دقيقة</small></label>
+                <label class="time-choice"><input type="radio" name="minutes" value="30" checked><b>30</b><small>دقيقة</small></label>
+                <label class="time-choice"><input type="radio" name="minutes" value="45"><b>45</b><small>دقيقة</small></label>
+                <label class="time-choice"><input type="radio" name="minutes" value="60"><b>60</b><small>دقيقة</small></label>
+              </div>
+              <div class="inline-field"><label for="studyDays">أيام التعلّم في الأسبوع</label><select id="studyDays"><option value="3">3 أيام</option><option value="4">4 أيام</option><option value="5" selected>5 أيام</option><option value="6">6 أيام</option><option value="7">كل الأيام</option></select></div>
+            </div>
+            <div class="wizard-step" data-step="3">
+              <span class="step-number">04 / أسلوبك</span><h3>إيه الطريقة اللي بتتعلم بيها أحسن؟</h3><p>ممكن تختار أكتر من طريقة.</p>
+              <div class="choice-grid two-col">
+                <label class="choice"><input type="checkbox" name="style" value="explain" checked><span class="choice-emoji">📘</span><b>شرح مبسّط</b><small>أفهم الفكرة الأول</small></label>
+                <label class="choice"><input type="checkbox" name="style" value="practice" checked><span class="choice-emoji">⌨️</span><b>تطبيق بإيدي</b><small>أكتب كود وأجرّب</small></label>
+                <label class="choice"><input type="checkbox" name="style" value="quiz"><span class="choice-emoji">🧠</span><b>أسئلة واختبارات</b><small>أختبر فهمي</small></label>
+                <label class="choice"><input type="checkbox" name="style" value="projects"><span class="choice-emoji">🛠️</span><b>مشاريع صغيرة</b><small>أتعلم وأنا ببني</small></label>
+              </div>
+              <div class="inline-field"><label for="customGoal">اكتب هدفك بطريقتك (اختياري)</label><textarea id="customGoal" rows="3" placeholder="مثال: عايز أعمل تطبيقات وأتعلم AI من غير ما أهمل دراستي..."></textarea></div>
+            </div>
+            <div class="wizard-footer"><button class="btn ghost" id="backStep" disabled>رجوع</button><span class="wizard-hint">اختياراتك قابلة للتعديل بعدين</span><button class="btn primary" id="nextStep">التالي <span>←</span></button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-roadmap" class="page">
+        <div class="page-intro"><span class="eyebrow">خريطة الطريق</span><h2>كل مرحلة بتوصّلك للي بعدها</h2><p>مسار مبدئي مبني على اختياراتك. هنخصصه أكتر لما نفعّل المساعد الذكي.</p></div>
+        <div class="roadmap-summary panel"><div class="roadmap-orb">⌘</div><div><span class="eyebrow">مسارك الحالي</span><h3 id="roadmapName">أساسيات البرمجة</h3><p id="roadmapDesc">ابني أساس قوي قبل ما تختار أدوات التخصص.</p></div><div class="roadmap-progress"><b id="roadmapCount">0 / 5</b><small>مراحل مكتملة</small></div></div>
+        <div class="roadmap-list" id="roadmapList"></div>
+      </section>
+
+      <section id="page-lesson" class="page">
+        <div class="lesson-layout">
+          <div class="lesson-main panel">
+            <div class="lesson-top"><span class="pill">الحصة اليومية</span><span class="lesson-duration">◷ <b id="lessonDuration">30 دقيقة</b></span></div>
+            <h2 id="lessonTitle">المتغيرات: تخزين المعلومات</h2>
+            <p id="lessonLead" class="lesson-lead">أول خطوة في البرمجة إنك تعرف تخزّن قيمة وتستخدمها.</p>
+            <div class="lesson-content" id="lessonContent">
+              <h3>الفكرة ببساطة</h3><p>المتغير اسم بنستخدمه عشان نشير لقيمة، زي اسم شخص أو عدد. بدل ما تكرر القيمة في كل مكان، بتديها اسم وتستخدم الاسم ده.</p>
+              <div class="code-sample"><div><span>Python</span><button id="copyCode">نسخ الكود</button></div><pre>student_name = "Ali"
+lessons_done = 1
+print(student_name)
+print(lessons_done)</pre></div>
+              <div class="tip-box"><span>✦</span><p><b>افتكر:</b> علامة <code>=</code> هنا معناها إسناد قيمة لمتغير، مش مقارنة بين قيمتين.</p></div>
+            </div>
+            <div class="lesson-task"><span class="eyebrow">دورك تطبّق</span><h3 id="taskTitle">اختبر فهمك</h3><p id="taskPrompt">أي اختيار بيخزّن الرقم 7 في متغير اسمه score؟</p>
+              <div id="answerChoices" class="answer-choices">
+                <label class="answer-option"><input type="radio" name="answer" value="a"><span><code>score == 7</code></span></label>
+                <label class="answer-option"><input type="radio" name="answer" value="b"><span><code>score = 7</code></span></label>
+                <label class="answer-option"><input type="radio" name="answer" value="c"><span><code>7 = score</code></span></label>
+              </div>
+              <div class="answer-feedback" id="answerFeedback" hidden></div>
+              <div class="lesson-actions"><button class="btn primary" id="checkAnswer">تحقّق من إجابتي</button><button class="btn ghost" id="nextQuestion">سؤال تاني ↻</button></div>
+            </div>
+          </div>
+          <aside class="lesson-side">
+            <div class="panel timer-panel"><span class="eyebrow">مؤقّت الحصة</span><div class="timer-circle"><div><strong id="timerDisplay">25:00</strong><small>وقت تركيز</small></div></div><p>المؤقّت اختياري، وإنت تقدر توقفه في أي وقت.</p><div class="timer-controls"><button class="btn primary" id="timerToggle">ابدأ</button><button class="btn ghost" id="timerReset">إعادة</button></div></div>
+            <div class="panel checklist-panel"><span class="eyebrow">خطة الحصة</span><h3>خطوات بسيطة</h3><label><input type="checkbox" id="taskLearn"> <span>اقرأ الشرح</span></label><label><input type="checkbox" id="taskPractice"> <span>حل السؤال</span></label><label><input type="checkbox" id="taskReview"> <span>راجع الفكرة</span></label><div class="checklist-progress"><div id="lessonProgressBar"></div></div><small id="lessonProgressText">0 من 3 خطوات</small></div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="page-practice" class="page">
+        <div class="page-intro"><span class="eyebrow">تدريب ومراجعة</span><h2>المعلومة اللي تستخدمها، بتثبت أكتر</h2><p>جاوب، افهم سبب الخطأ، وارجع جرّب تاني. الخطأ جزء من التعلّم مش حكم على مستواك.</p></div>
+        <div class="practice-grid">
+          <article class="panel practice-card"><div class="practice-icon">🧠</div><span class="eyebrow">سؤال سريع</span><h3>إيه ناتج الكود؟</h3><div class="code-sample"><pre>x = 3
+x = x + 2
+print(x)</pre></div><div class="practice-options"><label><input type="radio" name="practiceAnswer" value="3"> 3</label><label><input type="radio" name="practiceAnswer" value="5"> 5</label><label><input type="radio" name="practiceAnswer" value="6"> 6</label></div><button class="btn primary full" id="checkPractice">تحقّق من الإجابة</button><div id="practiceFeedback" class="answer-feedback" hidden></div></article>
+          <article class="panel practice-card"><div class="practice-icon">🔁</div><span class="eyebrow">مراجعة متباعدة</span><h3>راجع قبل ما تنسى</h3><p>المنصة هتذكّرك ترجع للمفاهيم اللي اتعلمتها بعد وقت، بدل ما تفضل تبدأ من الصفر كل مرة.</p><div class="review-row"><span>المتغيرات</span><span class="review-badge" id="reviewBadge">جاهزة للمراجعة</span></div><button class="btn ghost full" id="reviewNow">ابدأ المراجعة</button></article>
+        </div>
+      </section>
+
+      <section id="page-settings" class="page">
+        <div class="page-intro"><span class="eyebrow">إعداداتك</span><h2>إنت اللي بتحدد الإيقاع</h2><p>خلي الخطة تناسب وقتك الحقيقي، خصوصًا في أيام الدراسة والامتحانات.</p></div>
+        <div class="settings-grid">
+          <article class="panel settings-card"><h3>وقتك اليومي</h3><p>اختار وقتًا واقعيًا تقدر تلتزم به.</p><div class="setting-options"><button data-minutes="10">10 د</button><button data-minutes="20">20 د</button><button data-minutes="30">30 د</button><button data-minutes="45">45 د</button><button data-minutes="60">60 د</button></div><div class="setting-note">وقت البرمجة هدف مرن، مش التزام لازم يزاحم دراستك.</div></article>
+          <article class="panel settings-card"><h3>هدفك الشخصي</h3><textarea id="settingsGoal" rows="5" placeholder="اكتب هدفك هنا..."></textarea><button class="btn primary" id="saveGoal">حفظ الهدف</button></article>
+          <article class="panel settings-card"><h3>المساعد الذكي</h3><p>الواجهة جاهزة للربط بمساعد AI آمن عبر خادم. لا تضع مفتاح API في ملفات الموقع أو GitHub.</p><div class="api-status"><span class="status-dot muted"></span><span id="aiStatus">غير متصل بخادم الذكاء الاصطناعي</span></div><p class="small-muted">للتفعيل، راجع ملف README وإعداد Cloudflare Worker باستخدام سر محفوظ في إعدادات الخادم.</p></article>
+          <article class="panel settings-card"><h3>بياناتك</h3><p>هذه النسخة تحفظ التقدم محليًا في المتصفح الحالي. لا يوجد تسجيل دخول أو مزامنة بين الأجهزة حتى الآن.</p><button class="btn danger" id="resetData">مسح التقدم المحلي</button></article>
+        </div>
+      </section>
+
+      <section id="page-ai" class="page">
+        <div class="page-intro"><span class="eyebrow">المساعد الذكي</span><h2>خلّي خطتك أقرب لهدفك</h2><p>تقدر تكتب هدفك بالتفصيل. النسخة الحالية تستخدم مسارًا مبدئيًا محليًا، وربط الذكاء الاصطناعي الحقيقي يحتاج إعداد الخادم الموضّح في README.</p></div>
+        <div class="panel chat-panel"><div class="chat-messages" id="chatMessages"><div class="chat-message assistant">أهلًا! احكيلي عايز تبني إيه بالبرمجة، وأنا هساعدك ترتّب هدفك. في النسخة التجريبية دي، الردود محدودة لحد ما تربط خادم AI.</div></div><form id="chatForm" class="chat-form"><input id="chatInput" placeholder="مثال: عايز أعمل تطبيق فيه ذكاء اصطناعي..." autocomplete="off"><button class="btn primary" type="submit">إرسال ↗</button></form><small class="small-muted">لا تضع بيانات خاصة أو مفاتيح API في المحادثة.</small></div>
+      </section>
+
+      <footer class="footer"><span>مَسار © 2026</span><span>نسخة تجريبية شخصية · التقدّم محفوظ على جهازك</span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
